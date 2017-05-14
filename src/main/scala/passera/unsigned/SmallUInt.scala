@@ -5,9 +5,8 @@ import scala.math.{ScalaNumber, ScalaNumericConversions}
 /**
  * Supertrait of UByte, UShort, UInt
  */
-@serializable
-trait SmallUInt[U <: Unsigned[U, UInt, Int]] extends Any with Unsigned[U, UInt, Int] {
-  private def intRep = intValue
+trait SmallUInt[U <: Unsigned[U, UInt, Int]] extends Any with Serializable with Unsigned[U, UInt, Int] {
+  protected def intRep = intValue
 
   override def toByte = intRep.toByte
   override def toShort = intRep.toShort

@@ -2,8 +2,7 @@ package passera.unsigned
 
 import scala.math.{ScalaNumber, ScalaNumericConversions}
 
-@serializable
-case class ULong(override val longValue: Long) extends AnyVal with Unsigned[ULong, ULong, Long] {
+case class ULong(override val longValue: Long) extends AnyVal with Serializable with Unsigned[ULong, ULong, Long] {
   private[unsigned] def rep = longValue
 
   def toUByte = UByte((rep & 0xffffffffL).toByte)
