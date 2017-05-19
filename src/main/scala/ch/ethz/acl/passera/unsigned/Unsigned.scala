@@ -1,4 +1,4 @@
-package passera.unsigned
+package ch.ethz.acl.passera.unsigned
 
 import scala.math.ScalaNumericAnyConversions
 

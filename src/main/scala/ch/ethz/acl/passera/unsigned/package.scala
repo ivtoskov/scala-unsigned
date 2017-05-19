@@ -1,4 +1,4 @@
-package passera
+package ch.ethz.acl.passera
 
 package object unsigned {
   // implicit def s2u(x: Int) = UInt(x)

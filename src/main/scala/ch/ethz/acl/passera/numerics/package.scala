@@ -1,4 +1,4 @@
-package passera
+package ch.ethz.acl.passera
 
 package object numerics {
   implicit def toRicherInt(x: Int): RicherInt = new RicherInt(x)

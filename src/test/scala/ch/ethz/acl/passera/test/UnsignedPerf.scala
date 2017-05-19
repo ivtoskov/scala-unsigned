@@ -1,6 +1,6 @@
-package passera.test
+package ch.ethz.acl.passera.test
 
-import passera.unsigned._
+import ch.ethz.acl.passera.unsigned._
 
 object UnsignedPerf {
   def main(args: Array[String]) = {

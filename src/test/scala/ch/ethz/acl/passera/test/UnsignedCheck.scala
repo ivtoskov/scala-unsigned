@@ -1,8 +1,8 @@
-package passera.test
+package ch.ethz.acl.passera.test
 
 import org.scalacheck._
 import org.scalacheck.Prop._
-import passera.unsigned._
+import ch.ethz.acl.passera.unsigned._
 
 object UnsignedCheck extends Properties("Unsigned") {
   import Gen._

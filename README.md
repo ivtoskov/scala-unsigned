@@ -15,10 +15,10 @@ The classes are implemented by boxing Int, Long, Byte, Short, respectively.
 
 To use:
 
-    scala> import passera.unsigned._
+    scala> import ch.ethz.acl.passera.unsigned._
 
     scala> (-1).toUInt
-    res0: passera.unsigned.UInt = 4294967295
+    res0: ch.ethz.acl.passera.unsigned.UInt = 4294967295
 
     scala> res0 + 1
     res1: Int = 0
