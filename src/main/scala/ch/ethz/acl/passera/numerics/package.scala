@@ -2,15 +2,13 @@ package ch.ethz.acl.passera
 
 package object numerics {
   implicit def toRicherInt(x: Int): RicherInt = new RicherInt(x)
-  implicit def toRicherInt(x: scala.runtime.RichInt) = new YetRicherInt(x.self.asInstanceOf[Int])
+  implicit def toRicherInt(x: scala.runtime.RichInt): YetRicherInt = new YetRicherInt(x.self.asInstanceOf[Int])
 
   implicit def toRicherLong(x: Long): RicherLong = new RicherLong(x)
-  implicit def toRicherLong(x: scala.runtime.RichLong) = new YetRicherLong(x.self.asInstanceOf[Long])
+  implicit def toRicherLong(x: scala.runtime.RichLong): YetRicherLong = new YetRicherLong(x.self.asInstanceOf[Long])
 
   class RicherInt(x: Int) extends Proxy {
     def self: Any = x
-
-    import java.lang.Integer
 
     def bitCount = Integer.bitCount(x)
     def highestOneBit = Integer.highestOneBit(x)
