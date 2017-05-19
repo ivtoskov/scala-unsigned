@@ -6,5 +6,5 @@ case class UShort(override val shortValue: Short) extends AnyVal with Serializab
 
 object UShort {
   def MinValue = UShort(0)
-  def MaxValue = UShort(~0.toShort)
+  def MaxValue = UShort(~0)
 }
