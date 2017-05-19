@@ -1,22 +1,20 @@
 package ch.ethz.acl.passera
 
 package object unsigned {
-  // implicit def s2u(x: Int) = UInt(x)
-  // implicit def u2s(x: UInt) = x.rep
 
-  implicit def ubyte2uint(x: UByte) = UInt(x.toInt)
-  implicit def ushort2uint(x: UShort) = UInt(x.toInt)
-  implicit def ubyte2ulong(x: UByte) = ULong(x.toLong)
-  implicit def ushort2ulong(x: UShort) = ULong(x.toLong)
-  implicit def uint2ulong(x: UInt) = ULong(x.toLong)
+  implicit def ubyte2uint(x: UByte): UInt = UInt(x.toInt)
+  implicit def ushort2uint(x: UShort): UInt = UInt(x.toInt)
+  implicit def ubyte2ulong(x: UByte): ULong = ULong(x.toLong)
+  implicit def ushort2ulong(x: UShort): ULong = ULong(x.toLong)
+  implicit def uint2ulong(x: UInt): ULong = ULong(x.toLong)
 
-  implicit def signedIntOps(x: Int) = new SignedIntOps(x)
-  implicit def signedLongOps(x: Long) = new SignedLongOps(x)
-  implicit def floatOps(x: Float) = new FloatOps(x)
-  implicit def doubleOps(x: Double) = new DoubleOps(x)
-  implicit def signedRichIntOps(x: scala.runtime.RichInt) = new SignedRichIntOps(x.self.asInstanceOf[Int])
-  implicit def richUInt(x: UInt) = new RichUInt(x)
-  implicit def richerUInt(x: UInt) = new RicherUInt(x.toInt)
+  implicit def signedIntOps(x: Int): SignedIntOps = new SignedIntOps(x)
+  implicit def signedLongOps(x: Long): SignedLongOps = new SignedLongOps(x)
+  implicit def floatOps(x: Float): FloatOps = new FloatOps(x)
+  implicit def doubleOps(x: Double): DoubleOps = new DoubleOps(x)
+  implicit def signedRichIntOps(x: scala.runtime.RichInt): SignedRichIntOps = new SignedRichIntOps(x.self.asInstanceOf[Int])
+  implicit def richUInt(x: UInt): RichUInt = new RichUInt(x)
+  implicit def richerUInt(x: UInt): RicherUInt = new RicherUInt(x.toInt)
 
   class FloatOps(x: Float) {
     def toUByte = UByte(x.toByte)
