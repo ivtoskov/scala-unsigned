@@ -1,7 +1,5 @@
 package ch.ethz.acl.passera.unsigned
 
-import scala.math.{ScalaNumber, ScalaNumericConversions}
-
 case class ULong(override val longValue: Long) extends AnyVal with Serializable with Unsigned[ULong, ULong, Long] {
   private[unsigned] def rep = longValue
 
@@ -16,7 +14,7 @@ case class ULong(override val longValue: Long) extends AnyVal with Serializable 
   override def toInt: Int = (rep & 0x7fffffffffffffffL).toInt
   override def toLong: Long = rep
   override def toFloat: Float = (rep & 0x7fffffffffffffffL).toFloat
-  override def toDouble: Double = (rep >>> 1).toDouble * 2. + (rep & 1L)
+  override def toDouble: Double = (rep >>> 1).toDouble * 2.0 + (rep & 1L)
 
   // override def intValue = rep
   override def byteValue = toByte
@@ -86,7 +84,7 @@ case class ULong(override val longValue: Long) extends AnyVal with Serializable 
   def -(x: ULong): ULong = ULong(rep - x.rep)
   def *(x: ULong): ULong = ULong(rep * x.rep)
 
-  private def rot(x: Long) = (x + Long.MinValue)
+  private def rot(x: Long) = x + Long.MinValue
 
   def /(x: ULong): ULong = {
     val n = rep
@@ -138,7 +136,7 @@ case class ULong(override val longValue: Long) extends AnyVal with Serializable 
     if (rep >= 0L)
       rep.toString
     else if (rep == 1 << 63)
-      (rep.toString).tail
+      rep.toString.tail
     else
       (~(rep - 1)).toString
 

@@ -1,7 +1,5 @@
 package ch.ethz.acl.passera.unsigned
 
-import scala.math.{ScalaNumber, ScalaNumericConversions}
-
 /**
  * Supertrait of UByte, UShort, UInt
  */
@@ -24,7 +22,7 @@ trait SmallUInt[U <: Unsigned[U, UInt, Int]] extends Any with Serializable with 
   override def byteValue = intRep.toByte
   override def shortValue = intRep.toShort
   override def intValue: Int
-  override def longValue = (intRep & 0xffffffffL)
+  override def longValue = intRep & 0xffffffffL
   override def floatValue = (intRep & 0xffffffffL).toFloat
   override def doubleValue = (intRep & 0xffffffffL).toDouble
 
@@ -141,7 +139,7 @@ trait SmallUInt[U <: Unsigned[U, UInt, Int]] extends Any with Serializable with 
   }
   */
 
-  private def rot(x: Int) = (x + Int.MinValue)
+  private def rot(x: Int) = x + Int.MinValue
 
   def <(x: UInt) = rot(intRep) < rot(x.intRep)
   def >(x: UInt) = rot(intRep) > rot(x.intRep)

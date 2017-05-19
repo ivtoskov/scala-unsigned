@@ -1,7 +1,5 @@
 package ch.ethz.acl.passera.unsigned
 
-import scala.math.{ScalaNumber, ScalaNumericConversions}
-
 class UInt(val intValue: Int) extends AnyVal with Serializable with SmallUInt[UInt] {
   override def toUInt = this
   override def intRep = intValue
@@ -12,6 +10,6 @@ object UInt {
   def MaxValue = UInt(~0)
 
   def apply(x: Int) = new UInt(x)
-  def unapply(x: UInt) = Some((x.intValue))
+  def unapply(x: UInt) = Some(x.intValue)
 }
 
